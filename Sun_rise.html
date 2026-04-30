@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.wrapper{
+	display: flex;
+	position: relative;
+	background-color: skyblue;
+  	height: 400px;
+        width: 600px;
+	overflow: hidden;
+}
+
+.sun-rise {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    top: 150px;
+    left: 200px;
+    border-radius: 50%;
+    background: #FD5E53; 
+    box-shadow: 0 0 10px #fff; 
+    animation: pulse 3s infinite ease-out;
+}
+
+#cloud_1{
+	position: absolute;	
+        top: 100px;
+	right: 50px;
+}
+#cloud_2{
+	position: absolute;	
+        top: 20px;
+	left: 75px;
+}
+
+.mountain {
+  background-color: forestgreen;
+  width: 150%;
+  height: 300px;
+  border-radius: 50%; /* Creates the curved hill shape */
+  position: absolute;
+  bottom: -150px; /* Adjust to control the hill height */
+  left: -25%;
+}
+
+@keyframes pulse {
+  0% {
+    /* No shadow initially */
+    box-shadow: 0 0 0 0 rgba(255, 127, 80, 0.7);
+  }
+  25% {
+    box-shadow: 0 0 10px 20px rgba(255, 99, 71, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 15px 40px rgba(255, 69, 0, 0.3);	
+  }
+  75% {
+    box-shadow: 0 0 20px 60px rgba(255, 215, 0, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 165, 0, 0);
+  }
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="sun-rise"></div>
+<div class="mountain"></div>
+<i class="fa fa-cloud" id="cloud_1" style="font-size:81px;color:white"></i>
+<i class="fa fa-cloud" id="cloud_2" style="font-size:64px;color:white"></i>
+</div>
+</body>
+</html>
