@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  background: #add8e6; /* Light blue sky */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.snowman-hat {
+  position: relative;
+  width: 90px;
+  height: 10px;
+  background: #000;
+  border-radius: 5px;
+  margin: 0px auto;
+}
+
+.snowman-hat::before {
+  content: "";
+  position: absolute;
+  bottom: 100%; /* Sits on top of the brim */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 45px;
+  background: #000;
+  border-bottom: 5px solid #d32f2f; /* Red ribbon */
+}
+
+.snowman {
+  position: relative;
+  width: 200px;
+}
+
+/* Helper for all round parts */
+.head, .body-top, .body-bottom, .eye {
+  background: white;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.head {
+  width: 80px;
+  height: 80px;
+  z-index: 3;
+}
+
+.body-top {
+  width: 120px;
+  height: 120px;
+  margin-top: -15px; /* Overlap effect */
+  z-index: 2;
+}
+
+.body-bottom {
+  width: 160px;
+  height: 160px;
+  margin-top: -20px; /* Overlap effect */
+  z-index: 1;
+}
+
+/* Facial features */
+.eye {
+  background: #333;
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 30px;
+}
+
+.eye.left { left: 20px; }
+.eye.right { right: 20px; }
+
+.nose {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 20px solid orange; /* Triangle nose */
+  position: absolute;
+  top: 40px;
+  left: 35px;
+  transform: rotate(90deg);
+}
+</style>
+</head>
+<body>
+<h2>Simple Snow man</h2>
+<div class="snowman">
+<div class="snowman-hat"></div>
+  <div class="head">
+    <div class="eye left"></div>
+    <div class="eye right"></div>
+    <div class="nose"></div>
+  </div>
+  <div class="body-top"></div>
+  <div class="body-bottom"></div>
+</div>
+</body>
+</html>
