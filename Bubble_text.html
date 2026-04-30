@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.bubble {
+  height: 200px;
+  width: 1000px;
+  background-color: red; /* For browsers that do not support gradients */
+  background-image: linear-gradient(to right, red , yellow);
+}
+
+.bubble-text {
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; 
+  padding: 50px;
+  font-family: sans-serif; /* Use a bold, rounded font if possible */
+  font-size: 60px;
+  color: #fff; /* Main text color */
+  text-shadow: 
+    1px 1px 0 #000, 
+    2px 2px 0 #000, 
+    3px 3px 0 #000, /* Multiple shadows for depth/roundness */
+    4px 4px 5px #000; /* Softer shadow for glow/depth */
+  /* You can also use -webkit-text-stroke for an outline effect */
+  /* -webkit-text-stroke: 1px #000; */
+   animation: 
+    typing 3.5s steps(40, end) forwards,
+    blinking-cursor .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 90% }
+}
+
+/* Keyframes for the blinking cursor: toggle border color */
+@keyframes blinking-cursor {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
+}
+</style>
+</head>
+<body>
+<div class="bubble">
+  <h1 class="bubble-text">I love HK 💕!</h1>
+</div>
+</body>
+</html>
