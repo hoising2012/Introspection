@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.cube {
+  left: 0%;
+  top: 0%;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* Ensures children are positioned in 3D space */
+  transform-style: preserve-3d;
+  /* Optional: Add a rotating animation */
+  animation: ani 5s infinite linear;
+}
+
+.face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  /* Center the content of each face */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.face:nth-child(1) {background: rgba(255, 0, 0, 0.7); transform: translateZ(100px); }
+.face:nth-child(2) {background: rgba(0, 255, 0, 0.7); transform: rotateY(180deg) translateZ(100px); }
+.face:nth-child(3) {background: rgba(0, 0, 255, 0.7); transform: rotateY(90deg) translateZ(100px); }
+.face:nth-child(4) {background: rgba(255, 255, 0, 0.7); transform: rotateY(-90deg) translateZ(100px); }
+.face:nth-child(5) {background: rgba(255, 0, 255, 0.7); transform: rotateX(90deg) translateZ(100px); }
+.face:nth-child(6) {background: rgba(0, 255, 255, 0.7); transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes ani { to { transform: rotate3d(5, 12, 13, -360deg); } }
+
+</style>
+</head>
+<body>
+<h2>3D-cube</h2>
+<ul class='cube'>
+    <li class='face'>1</li>
+    <li class='face'>2</li>
+    <li class='face'>3</li>
+    <li class='face'>4</li>
+    <li class='face'>5</li>
+    <li class='face'>6</li>
+</ul>
+</body>
+</html>
