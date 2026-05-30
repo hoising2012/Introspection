@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --bird-color: #2196F3;       /* Vibrant blue body */
+  --wing-light-color: #64B5F6; /* Lighter blue for inner wings */
+  --wing-dark-color: #1976D2;  /* Darker blue for back wing shadow */
+}
+
+body {
+  margin: 0;
+  background: #e0f7fa; /* Light sky background */
+  overflow: hidden;
+}
+
+.sky {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* 1. FLIGHT PATH ANIMATION (Moves bird across screen) */
+.bird-flight-path {
+  position: absolute;
+  top: 40%;
+  left: -10%;
+  animation: fly-across 8s linear infinite;
+  perspective: 2000px; /* Gives depth to 3D wing rotation */
+}
+
+/* 2. BIRD STRUCTURE & FLAPPING INNER BASE */
+.bird {
+  position: relative;
+  width: 50px;
+  height: 30px;
+  transform-style: preserve-3d;
+  animation: bobbing 2s ease-in-out infinite alternate;
+}
+
+/* Bird Body Shape */
+.bird-body {
+  position: absolute;
+  width: 50px;
+  height: 25px;
+  background: var(--bird-color);
+  border-radius: 50% 100% 50% 30%;
+  z-index: 2;
+}
+
+/* Beak */
+.bird-body::after {
+  content: '';
+  position: absolute;
+  right: -8px;
+  top: 6px;
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 10px solid #FFC107; /* Orange beak */
+}
+
+/* 3. WINGS & 3D FLAP ANIMATIONS */
+.wing {
+  position: absolute;
+  width: 35px;
+  height: 50px;
+  border-radius: 10% 100% 10% 10%;
+  transform-origin: bottom center;
+  animation-duration: 0.4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.wing-left {
+  background: var(--wing-light-color);
+  top: -42px;
+  left: 5px;
+  z-index: 3;
+  animation-name: flap-left;
+}
+
+.wing-right {
+  background: var(--wing-dark-color);
+  top: -45px;
+  left: 12px;
+  z-index: 1;
+  animation-name: flap-right;
+  transform-origin: bottom left;
+}
+
+/* KEYFRAMES FOR ANIMATIONS */
+
+/* Flapping Left Wing (Front) */
+@keyframes flap-left {
+  0% {
+    transform: rotateX(-30deg) rotateY(10deg);
+  }
+  50% {
+    transform: rotateX(55deg) rotateY(-10deg);
+  }
+  100% {
+    transform: rotateX(-30deg) rotateY(10deg);
+  }
+}
+
+/* Flapping Right Wing (Back) */
+@keyframes flap-right {
+  0% {
+    transform: rotateX(40deg) rotateY(-5deg);
+  }
+  50% {
+    transform: rotateX(-45deg) rotateY(5deg);
+  }
+  100% {
+    transform: rotateX(40deg) rotateY(-5deg);
+  }
+}
+
+/* Slight up and down bobbing during flight */
+@keyframes bobbing {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-15px); }
+}
+
+/* Move left to right across the screen layout */
+@keyframes fly-across {
+  0% {
+    left: -10%;
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1.1); /* Simulates coming closer */
+  }
+  100% {
+    left: 110%;
+    transform: scale(0.8);
+  }
+}
+</style>
+</head>
+<body>
+<h1><b>Blue bird flying animation</b></h1>
+<div class="sky">
+  <!-- Bird Container for flight path -->
+  <div class="bird-flight-path">
+    <div class="bird">
+      <div class="wing wing-left"></div>
+      <div class="bird-body"></div>
+      <div class="wing wing-right"></div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
