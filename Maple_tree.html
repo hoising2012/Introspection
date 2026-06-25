@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+:root {
+  --maple-red: #b22222;
+  --maple-orange: #ff4500;
+  --maple-gold: #ff8c00;
+  --trunk-brown: #5c4033;
+}
+
+/* Tree Container */
+.maple-tree {
+  position: relative;
+  width: 200px;
+  height: 300px;
+  margin: 50px auto;
+}
+
+/* Foliage Wrapper */
+.crown {
+  position: absolute;
+  top: 0;
+  width: 200px;
+  height: 200px;
+}
+
+/* Individual Leaf Layers */
+.leaf {
+  position: absolute;
+  border-radius: 50%;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.15));
+}
+
+.layer-1 {
+  width: 120px;
+  height: 120px;
+  background: var(--maple-red);
+  top: 10px;
+  left: 40px;
+  z-index: 4;
+}
+
+.layer-2 {
+  width: 100px;
+  height: 100px;
+  background: var(--maple-orange);
+  top: 40px;
+  left: 10px;
+  z-index: 3;
+}
+
+.layer-3 {
+  width: 100px;
+  height: 100px;
+  background: var(--maple-gold);
+  top: 40px;
+  right: 10px;
+  z-index: 2;
+}
+
+.layer-4 {
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(135deg, var(--maple-red), var(--maple-orange));
+  top: 50px;
+  left: 30px;
+  z-index: 1;
+}
+
+/* Trunk Implementation */
+.trunk {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 120px;
+  background: linear-gradient(to right, #4a3329, var(--trunk-brown), #4a3329);
+  border-radius: 4px 4px 0 0;
+  z-index: 0;
+}
+
+/* Natural Branch Multipliers */
+.branch {
+  position: absolute;
+  width: 8px;
+  height: 40px;
+  background-color: var(--trunk-brown);
+  border-radius: 4px;
+}
+
+.branch.left {
+  top: 20px;
+  left: -10px;
+  transform: rotate(-35deg);
+}
+
+.branch.right {
+  top: 40px;
+  right: -10px;
+  transform: rotate(35deg);
+}
+</style>
+</head>
+<body>
+<h2>Maple tree</h2>
+<div class="maple-tree">
+  <!-- Foliage / Leaves -->
+  <div class="crown">
+    <div class="leaf layer-1"></div>
+    <div class="leaf layer-2"></div>
+    <div class="leaf layer-3"></div>
+    <div class="leaf layer-4"></div>
+  </div>
+  <!-- Trunk and Branches -->
+  <div class="trunk">
+    <div class="branch left"></div>
+    <div class="branch right"></div>
+  </div>
+</div>
+</body>
+</html>
