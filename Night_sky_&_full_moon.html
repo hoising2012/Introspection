@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Night Sky and Full Moon</title>
+  <style>
+    /* Reset margins and set up full screen canvas */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* 1. THE NIGHT SKY - Deep space gradient */
+    .sky {
+      width: 100vw;
+      height: 100vh;
+      background: linear-gradient(to bottom, #020111 60%, #191621 100%);
+      position: relative;
+    }
+
+    /* 2. THE STARS - Endless space using radial gradients */
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(1px 1px at 25px 35px, #fff, rgba(255,255,255,0)),
+        radial-gradient(1.5px 1.5px at 60px 120px, #fff, rgba(255,255,255,0)),
+        radial-gradient(2px 2px at 150px 50px, #fff, rgba(255,255,255,0)),
+        radial-gradient(1px 1px at 300px 250px, #fff, rgba(255,255,255,0)),
+        radial-gradient(2px 2px at 450px 180px, #fff, rgba(255,255,255,0)),
+        radial-gradient(1.5px 1.5px at 200px 400px, #fff, rgba(255,255,255,0));
+      background-size: 550px 550px; /* Forces the patterns to tile seamlessly */
+      opacity: 0.8;
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+
+    /* 3. THE FULL MOON - Circular shape with glowing rings */
+    .moon {
+      position: absolute;
+      top: 15%;
+      right: 15%;
+      width: 120px;
+      height: 120px;
+      background: #fefcd7;
+      border-radius: 50%;
+      /* Box shadow layers generate the atmosphere and outer glow */
+      box-shadow: 
+        0 0 20px 0px #fefcd7, 
+        0 0 60px 10px rgba(255, 255, 255, 0.4), 
+        0 0 100px 30px rgba(255, 255, 255, 0.1);
+    }
+
+    /* 4. MOON CRATERS - Pseudo-elements for realistic texture */
+    .moon::before {
+      content: '';
+      position: absolute;
+      top: 25px;
+      left: 20px;
+      width: 25px;
+      height: 25px;
+      background: rgba(0, 0, 0, 0.04);
+      border-radius: 50%;
+      box-shadow: 
+        35px 40px 0 4px rgba(0, 0, 0, 0.04),
+        15px 60px 0 -2px rgba(0, 0, 0, 0.04),
+        55px 15px 0 1px rgba(0, 0, 0, 0.04);
+    }
+
+    /* Star twinkling animation rule */
+    @keyframes twinkle {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="sky">
+    <div class="stars"></div>
+    <div class="moon"></div>
+  </div>
+
+</body>
+</html>
