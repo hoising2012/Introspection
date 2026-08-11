@@ -26,8 +26,8 @@ $lastNonZero = !empty($filtered) ? end($filtered) : null;
 $matrix[2][0] = $matrix[1][0] - $lastNonZero;
 $matrix[2][1] = 1 + $lastNonZero;
 
-$thridRow = $matrix[2] ?? [];
-$filtered = array_filter($thridRow , fn($v) => $v !== 0);
+$thirdRow = $matrix[2] ?? [];
+$filtered = array_filter($thirdRow , fn($v) => $v !== 0);
 $lastNonZero = !empty($filtered) ? end($filtered) : null;
 
 $matrix[3][0] = $matrix[2][0];
