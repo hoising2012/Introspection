@@ -15,7 +15,6 @@ th, td {
 <body>
 <?php
 echo "<h1>Prime 1-100</h1>";
-echo "</br>";
 echo "<table>";
 echo "<tr>";
 echo "<th>A</th>";
