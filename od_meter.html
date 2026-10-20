@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<style>
+.digit {
+  color:darkgray;
+  border-style:none;
+  width:200px;
+  height:200px;
+  font-size:60px;
+}
+
+td{
+  border:2px solid darkgray;
+  height: 50px;   
+  width: 50px;  
+  font-size: 50px;
+}
+table {
+  border-collapse:collapse;
+}
+</style>
+<body>
+<h3>Oddo meter</h3>
+<table id="tableId">
+<tr>
+  <td><class="digit" id="1" type="text" maxlength="1" size="1">0</td>
+  <td><class="digit" id="2" type="text" maxlength="1" size="1">0</td>
+  <td><class="digit" id="3" type="text" maxlength="1" size="1">0</td>
+  <td><class="digit" id="4" type="text" maxlength="1" size="1">0</td>
+</tr>
+</table>
+<button type="button" onclick="Increaement()">Push!</button>
+<button type="button" onclick="Reset()">Reset</button>
+<script>
+var n = 0;
+var str;
+var max_val = 9999;
+function Increaement() {
+	 n = n + 1;
+         if(n>max_val){
+		Reset();
+	 }
+         console.log(n);
+	 if(n<10){
+		str = "000"+n.toString();
+	 }else if(n<100){
+		str = "00"+n.toString();
+	 }
+	 else if(n<1000){
+		str = "0"+n.toString();
+	 }else{
+         	str = n.toString();
+         }	
+	 console.log(str);
+	 var digit1 = document.getElementById("1");
+	 var digit2 = document.getElementById("2");
+	 var digit3 = document.getElementById("3");
+	 var digit4 = document.getElementById("4");
+  	 digit1.innerHTML = str[0];
+	 digit2.innerHTML = str[1];
+         digit3.innerHTML = str[2];	 
+	 digit4.innerHTML = str[3];
+}
+function Reset(){
+	 n = 0;
+         str = "0000"
+         console.log(n);
+         console.log(str);
+         var digit1 = document.getElementById("1");
+	 var digit2 = document.getElementById("2");
+	 var digit3 = document.getElementById("3");
+	 var digit4 = document.getElementById("4");
+  	 digit1.innerHTML = "0";
+	 digit2.innerHTML = "0";
+         digit3.innerHTML = "0";	 
+	 digit4.innerHTML = "0";
+}
+</script>
+</body>
+</html>
