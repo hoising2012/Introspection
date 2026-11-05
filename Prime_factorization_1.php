@@ -6,10 +6,10 @@
 <?php
 $A = 1092;
 echo "The prime factors of ".$A." : ";
-do{
+while($A%2==0){
 	$A = $A/2;
 	echo "2 ";	
-}while($A%2==0);
+}
 for($i=3; $i<=$A/2; $i++){
 	while($A%$i==0){
 		echo $i." ";
